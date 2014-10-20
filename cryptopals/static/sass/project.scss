@@ -1,0 +1,77 @@
+// project specific CSS goes here
+
+// bootstrap alert CSS, translated to the django-standard levels of
+// debug, info, success, warning, error
+.alert-debug {
+  color: black;
+  background-color: white;
+  border-color: #d6e9c6;
+}
+
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert-warning {
+  color: black;
+  background-color: orange;
+  border-color: #d6e9c6;
+}
+
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.pal {
+  padding: 10px;
+  margin: 10px;
+  height: 150px;
+  background: #FCF4F4;
+}
+
+.pal-pic {
+  float: left;
+  margin-right: 12px;
+  width: 78px;
+  background: #F5F2FF;
+}
+
+.name-key {
+  float: left;
+  width: 100px;
+  word-wrap:break-word;
+  margin: 0 20px 5px 0;
+}
+
+.username {
+  font-size: 1.2em;
+}
+
+.write-to-me-about {
+  float: left;
+}
+
+.small-text {
+  font-size: 90%;
+}
+
+.smaller-text {
+  font-size:80%;
+}
+
+// Bootstrap rewrite
+.col-sm-6 {
+@media (min-width: 768px) {
+width: 47.7% !important;
+}
+}

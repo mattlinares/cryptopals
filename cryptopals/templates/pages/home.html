@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+      {% block content %}
+      {% load avatar_tags %}
+
+      <div class="container" id="intro">
+
+      <h3>Get an encrypted email buddy</h3>
+
+      <div class="about">
+      <p><img src="https://cryptopal.s3.amazonaws.com/images/letter.jpg" class="image-horizontal large-width">More people than ever want to communicate privately, without creeps collecting their info. Encrypting your email is part of the solution. <a href="http://lifehacker.com/180878/how-to-encrypt-your-email">It's not hard, learn how&rarr;</a></p>
+
+      <p>But not everyone has someone to share encrypted email with. Find a friendly cryptopal right here.</p>
+
+      <p>Discover someone who interests you from our list, get their email and public key (<a href="http://www.comodo.com/resources/small-business/digital-certificates2.php">what's that?</a>) by clicking on their Key ID, and send a greeting. Or <a href="/accounts/signup">offer yourself as a buddy to meet others encrypting</a>.</p>
+      </div>
+
+      <h3>Why?</h3>
+
+      <div class="about">
+      <p>To practice critical skills for private data. To regain the romance of sacred communications and meet new people who care about online privacy.</p>
+      </div>
+
+      <h3>Support the project</h3>
+      
+      <div class="about">
+      <p>Share this with your networks and support the project.</p>
+
+
+          <div id="shares">
+            <ul id="social">
+                <li><a href="http://twitter.com/share" class="socialite twitter-share" data-text="Get a pen pal to share encrypted email with" data-url="http://www.cryptopals.org" data-count="vertical" rel="nofollow" target="_blank"><span class="vhidden">Share on Twitter</span></a></li>
+                <li><a href="https://plus.google.com/share?url=http://www.cryptopals.org" class="socialite googleplus-one" data-size="tall" data-href="http://www.cryptopals.org" rel="nofollow" target="_blank"><span class="vhidden">Share on Google+</span></a></li>
+                <li><a href="http://www.facebook.com/sharer.php?u=http://www.cryptopals.org&amp;t=Get%20a%20pen%20pal%20to%20share%20encrypted%20email%20with%20at%20www.cryptopals.org" class="socialite facebook-like" data-href="http://www.cryptopals.org" data-send="false" data-layout="box_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden">Share on Facebook</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      {% load shuffle %}
+      <div id="pals" class="js-masonry" data-masonry-options='{ "itemSelector": ".pal" }'>
+            <div class="row">
+            {% for pal in pals|shuffle %}
+                  <div class="pal col-6 col-sm-6 col-lg-4">
+
+
+
+                        <img src="{% avatar_url pal.user %}" class="pal-pic">
+                        <div class="name-key"><p class="username"><strong>{{ pal.user.username }}</strong></p><strong>Key ID </strong><a href="/about#KeyID"><span class="tooltip" data-toggle="tooltip" title="Public keys are long. It's good to have a shorthand, like the Key ID. You can use them to search for email addresses on public keyservers. It's good to list your key on keyservers so anyone can encrypt mail to you.">(?)</span></a><br />
+                        <a href="http://pgp.mit.edu/pks/lookup?op=get&search={% if pal.public_key %}{{ pal.public_key }}{% else %}{{ pal.user.email }}{% endif %}&op=index"><span class="smaller-text">{% if pal.public_key %}{{ pal.public_key }}{% else %}{{ pal.user.email }}{% endif %}</span></a></div>
+                        {% if pal.write_about %}
+                        <div class="write-to-me-about" class="write-about">
+                        <p><strong>Write to me about...</strong></p>
+                        <p class="small-text">{{ pal.write_about }}</p>
+                        </div>
+                        {% endif %}
+
+                  </div>
+            {% endfor %}
+      </div>
+      </div>
+
+      {% endblock content %}

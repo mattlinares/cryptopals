@@ -1,0 +1,11 @@
+# Pro-tip: Try not to put anything here. There should be no dependency in
+#	production that isn't in development.
+pylibmc==1.2.3
+django-heroku-memcacheify==0.5
+-r base.txt
+
+gunicorn==0.17.4
+django-storages==1.1.4
+gevent==0.13.8
+boto==2.9.5
+django-pylibmc-sasl==0.2.4

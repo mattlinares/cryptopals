@@ -1,0 +1,17 @@
+# This file is here because many Platforms as a Service look for
+#	requirements.txt in the root directory of a project.
+# pylibmc==1.2.3  # 
+
+# Local dependencies, included in here to fix difficult provisioning process. Can probably be separated out back into local somehow.
+coverage==3.6
+django-discover-runner==0.4
+Sphinx
+
+django-dotenv==1.2
+django-getenv==1.3.1
+
+# django-debug-toolbar that works with Django 1.5+
+django-debug-toolbar==1.0
+
+
+-r requirements/production.txt

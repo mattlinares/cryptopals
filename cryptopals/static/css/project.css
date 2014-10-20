@@ -1,0 +1,147 @@
+/* line 5, ../sass/project.scss */
+.alert-debug {
+  color: black;
+  background-color: white;
+  border-color: #d6e9c6;
+}
+
+/* line 11, ../sass/project.scss */
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+/* line 17, ../sass/project.scss */
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+/* line 23, ../sass/project.scss */
+.alert-warning {
+  color: black;
+  background-color: orange;
+  border-color: #d6e9c6;
+}
+
+/* line 29, ../sass/project.scss */
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+body {
+  font-size: 1.5em;
+  line-height: 1.3;
+  font-family: 'Rosarivo', serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Rosarivo';
+  font-weight: bold;
+}
+
+ul.navbar-nav li:first-child {
+  font-size: 18px;
+}
+
+.about {
+  margin-bottom: 25px;
+}
+
+.image-horizontal {
+  float: right;
+  margin: 4px 0 10px 15px;
+}
+
+.image-vertical {
+  float: right;
+  margin: 4px 0 10px 15px;
+}
+
+.small-width {
+  width: 30%;
+}
+
+.large-width {
+  width: 40%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.caption {
+  font-size: 85%;
+  color: #676E80;
+  background-color: rgba(255, 245, 245, 0.75);
+  margin-top: 8px;
+  padding: 4px;
+}
+
+#intro {
+  margin-bottom: 35px;
+}
+
+/* line 35, ../sass/project.scss */
+.pal {
+  padding: 10px 10px 0;
+  margin: 10px 10px 20px;
+  /*height: 150px;*/
+  background: #FCF4F4;
+  border-bottom: solid 4px aliceblue;
+}
+
+
+/* line 42, ../sass/project.scss */
+.pal-pic {
+  float: left;
+  margin: 0 12px 10px 0;
+  width: 78px;
+  background: #F5F2FF;
+}
+
+.tooltip {
+  opacity: 1;
+  display: inline;
+  font-size: 0.9em;
+}
+
+/* line 49, ../sass/project.scss */
+.name-key {
+  float: left;
+  width: 180px;
+  word-wrap: break-word;
+  margin: 0 20px 5px 0;
+}
+
+/* line 56, ../sass/project.scss */
+.username {
+  font-size: 1.2em;
+}
+
+/* line 60, ../sass/project.scss */
+.write-to-me-about {
+  float: left;
+  margin-top: 8px;
+}
+
+/* line 64, ../sass/project.scss */
+.small-text {
+  font-size: 90%;
+}
+
+/* line 68, ../sass/project.scss */
+.smaller-text {
+  font-size: 80%;
+}
+
+@media (min-width: 768px) {
+  /* line 73, ../sass/project.scss */
+  .col-sm-6 {
+    width: 47.7% !important;
+  }
+}

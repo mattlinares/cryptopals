@@ -1,0 +1,143 @@
+{% load staticfiles i18n %}<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}cryptopals{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get an encrypted email penpal">
+    <meta name="author" content="">
+
+
+    <meta property="og:title" content="cryptopals" />
+    <meta property="og:site_name" content="Cryptopals Get an encrypted email penpal" />
+    <meta property="og:url" content="http://www.cryptopals.org" />
+    <meta property="og:image" content="https://s3-eu-west-1.amazonaws.com/cryptopal/images/cryptopal.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="64" />
+    <meta property="og:image:height" content="63" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Get an encrypted email penpal" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" type="image/png" href="https://s3-eu-west-1.amazonaws.com/cryptopal/images/cryptopal.png" />
+
+    {% block css %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-docs.css' %}" type="text/css" media="screen">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+    <!-- Your stuff: Third-party css libraries go here -->
+    <link href="{% static 'css/socialite.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rosarivo' rel='stylesheet' type='text/css'>
+
+    <!-- This file store project specific CSS -->
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block angular %}
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <div class="header navbar">
+      <div class="container">
+        <ul class="nav navbar-nav">
+<!--           <li class="active"><a href="{% url 'home' %}">Home</a></li> -->
+          <li class="active"><a href="/"><img src="https://s3-eu-west-1.amazonaws.com/cryptopal/images/cryptopal.png" style="width: 20px; height: 20px;">  <strong>cryptopals</strong></a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+
+          {% if request.user.is_authenticated %}
+            <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
+            <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
+          {% else %}
+            <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+            <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+        
+      {% if messages %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+          {% endfor %}
+      {% endif %}
+
+      {% block content %}
+
+      {% endblock content %}
+
+    </div> <!-- /container -->
+    
+    {% block modal %}{% endblock modal %}
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% block javascript %}
+      <!-- Latest JQuery -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+      <!-- Your stuff: Third-party javascript libraries go here -->
+      <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+      <script src="{% static 'js/socialite.min.js' %}"></script>
+
+      <script>
+      $(document).ready(function(){
+          Socialite.load()
+      });
+      </script>
+        
+      <script>
+      $(document).ready(function(){
+          $(".tooltip").tooltip()
+
+      });
+      </script>
+
+      <script type="text/javascript">
+        /* <![CDATA[ */
+        (function() {
+            var s = document.createElement('script');
+            var t = document.getElementsByTagName('script')[0];
+
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//api.flattr.com/js/0.6/load.js?mode=auto';
+
+            t.parentNode.insertBefore(s, t);
+         })();
+        /* ]]> */
+      </script>
+
+      <!-- place project specific Javascript in this file -->
+      <script src="{% static 'js/project.js' %}"></script>
+    {% endblock javascript %}
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48024231-1', 'cryptopals.org');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
+ 
